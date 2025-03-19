@@ -1,13 +1,239 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: "cwTeXYen",'-apple-system', 'BlinkMacSystemFont','Noto Sans TC' ,'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(35, 31, 31); 
+}
+.analytic-title {
+  color: white;
+  font-size: 30px;
+  display: flex;
+  margin-top: 3%;
+  justify-content: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.analytic-title button {
+  color: black;
+  font-size: 30px;
+  background-color: #d3d3ce;
+  border-radius: 5px;
+  margin: 1%;
+  padding: 5px 10px;
+  cursor: pointer;
 }
+.analytic-title button:hover {
+  background-color: #555;
+  color: white;
+}
+
+.table {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+  /* width: fit-content; */
+}
+.chart {
+  margin-top: 2%;
+  padding: 0% 15%;
+  display: flex;
+  justify-content: center;  
+}
+.title2 {
+  color: white;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+  position: relative;
+}
+.topic-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+}
+.half-width {
+  height: 100%;
+}
+.centrality{
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+}
+.centrality button{
+  color: black;
+  background-color: #d3d3ce; 
+  border-radius: 5px;
+  font-size: 40px;
+  margin: 1%;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.centrality button:hover {
+  background-color: #555;
+  color: white;
+}
+.centrality button.selected {
+  background-color: #555;
+  color: white;
+}
+
+
+.stance-change-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2%;
+}
+.stance-change-item {
+  flex: 1 0 15%; 
+  background-color: #d3d3ce;
+  color: black;
+  border-radius: 10px; 
+  margin: 10px 0 10px 10px; 
+  padding: 10px; 
+}
+.timestamp {
+  margin-top: 2%;
+  position: sticky;
+  top:0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+}
+.timestamp button{
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  padding: 2% 2%;
+  cursor: pointer;
+  font-size: 35px;
+}
+.title3 {
+  color: white;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+}
+.timestamp2 {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top:0;
+  z-index: 9999;
+  background-color: #16171C ;
+}
+.timestamp {
+  margin-top: 2%;
+  position: sticky;
+  top:0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+}
+.timestamp2 button{
+  border-radius: 5px;
+  font-size: 35px;
+  padding: 2% 2%;
+  cursor: pointer;
+  color: white;
+}
+
+
+
+
+
+
+.upload-style {
+  /* width: 100%; */
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  /* display: flex;  */
+}
+.title-style {
+  color: white;
+  font-size: 30px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  text-align: center;
+  align-items: center;
+}
+
+.upload-style button {
+  padding: 20px 25px;
+  background-color: rgb(32, 44, 44);
+  border-width: 1px;
+  font-family: 'cwTeXYen'; 
+  background-color: #28355c;
+  border-style: solid;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 5%;
+}
+.upload-style input {
+  padding: 0.5% 1%;
+  font-family: 'cwTeXYen'; 
+  border: none;
+  border-radius: 10px;
+  border-style: solid;
+  background-color: #808aaa;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+  
+}
+.date-title {
+  color: white;
+  font-size: 30px;
+  margin-top: 1.5%;
+  /* margin-bottom: 5%; */
+  text-align: center;
+  align-items: center;
+}
+
+
+.box {
+  width: 60%;
+  height: 50%;
+  padding: 2% 3%;
+  
+  border: none;
+  border-radius: 10px;
+  border-style: solid;
+  color: #5b5454;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  margin-bottom: 5%;
+  background-color: #ffffff;
+  display: flex;  
+  align-items: center;
+}
+.box-title {
+  font-size: 30px;
+}
+.icon {
+  align-items: center;
+  justify-content: center; 
+  margin-right: 5%;  /* 設定右邊距 */
+  
+}
+
+
+
+
+
+
+
+
