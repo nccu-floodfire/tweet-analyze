@@ -2,7 +2,10 @@
 
 ### 啟動專案
 
-`npm start`
+bash
+```
+npm start
+```
 網站會在Port 3000 [http://localhost:3000](http://localhost:3000) 
 
 ### 專案介紹
