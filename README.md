@@ -27,6 +27,6 @@
 - `stancedetail.tsx` 立場分析頁面，可查看單獨節點立場前後變化的貼文有哪些
 <img width="700" alt="截圖 2025-03-19 晚上9 20 06" src="https://github.com/user-attachments/assets/97d57962-edaf-44a0-83de-30467144952f" />
 
-- 個別頁面所需元件及樣式設定放在`Component`資料夾裡，跟社群網路相關元件放在`network`資料夾中
+- 個別頁面所需元件及樣式設定放在`Component`資料夾裡，跟社群網路相關元件放在`network`資料夾中（可參考[Sigma.js](https://www.sigmajs.org))
 <img width="267" alt="截圖 2025-03-19 晚上9 18 06" src="https://github.com/user-attachments/assets/c616e581-e285-4044-a4d5-8206c7b1be5d" />
 
