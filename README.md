@@ -2,7 +2,6 @@
 
 ### 啟動專案
 
-bash
 ```
 npm start
 ```
