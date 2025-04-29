@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import sigma from 'sigma';
 import Graph from 'graphology';
 import { createNodeImageProgram } from '@sigma/node-image';
-import ForceSupervisor from 'graphology-layout-force/worker';
 import { Dataset, FiltersState } from "../types";
 import { color } from "@mui/system";
 
