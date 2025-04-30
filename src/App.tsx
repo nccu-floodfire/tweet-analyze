@@ -4,21 +4,22 @@ import { SideBar } from './Components/sidebar';
 import { GlobalStyle } from "./styles/global";
 import { Datepicker } from './Components/Datepicker';
 import TooltipButton from './Components/tooltip3';
+import { API_BASE_URL } from './config';
 
 
 
 const App: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
   const [dic_file, setDicfile] = useState<File | null>(null);
-  const [result, setResult] = useState<any[]>([]); 
-  const [startDate1, setStartDate1] = useState<Dayjs | null>(null); 
-  const [endDate1, setEndDate1] = useState<Dayjs | null>(null); 
-  const [startDate2, setStartDate2] = useState<Dayjs | null>(null); 
-  const [endDate2, setEndDate2] = useState<Dayjs | null>(null); 
-  const [startDate3, setStartDate3] = useState<Dayjs | null>(null); 
-  const [endDate3, setEndDate3] = useState<Dayjs | null>(null); 
-  const [result2, setResult2] = useState<any[]>([]); 
-  
+  const [result, setResult] = useState<any[]>([]);
+  const [startDate1, setStartDate1] = useState<Dayjs | null>(null);
+  const [endDate1, setEndDate1] = useState<Dayjs | null>(null);
+  const [startDate2, setStartDate2] = useState<Dayjs | null>(null);
+  const [endDate2, setEndDate2] = useState<Dayjs | null>(null);
+  const [startDate3, setStartDate3] = useState<Dayjs | null>(null);
+  const [endDate3, setEndDate3] = useState<Dayjs | null>(null);
+  const [result2, setResult2] = useState<any[]>([]);
+
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     if (e.target.files && e.target.files.length > 0) {
       setFile(e.target.files[0]);
@@ -35,7 +36,7 @@ const App: React.FC = () => {
     if (!file) {
       return;
     }
-    
+
     const formData = new FormData();
     formData.append('file', file);
 
@@ -60,7 +61,7 @@ const App: React.FC = () => {
       formData.append('endDate3', dayjs(endDate3).format('YYYY-MM-DD')); // 轉換為 UTC 的日期部分
     }
 
-    fetch('http://127.0.0.1:5001/upload', {
+    fetch(`${API_BASE_URL}/upload`, {
       method: 'POST',
       body: formData,
       headers: {
@@ -72,7 +73,7 @@ const App: React.FC = () => {
         setResult(result.result)
         console.log(result)
         if (result.result === 'Success!') {
-          fetch('http://127.0.0.1:5001/centerity', {
+          fetch(`${API_BASE_URL}/centerity`, {
             method: 'POST',
             body: formData,
             headers: {
@@ -137,16 +138,16 @@ const App: React.FC = () => {
             <button onClick={handleUpload}>上傳</button>
           </div>
           <div className='date-title'>
-            <p>{result}</p>  
+            <p>{result}</p>
           </div>
         </div>
-        <GlobalStyle /> 
+        <GlobalStyle />
         <SideBar />
       </div>
-      
-      
+
+
     );
-   
+
 };
 
 
