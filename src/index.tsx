@@ -19,7 +19,7 @@ const router = createBrowserRouter([
   {
     path: '/store',
     element: <Store />,
-  
+
   },
   {
     path: '/analytics/:filename',
@@ -29,7 +29,10 @@ const router = createBrowserRouter([
     path: '/analytics/:filename/:time/:user',
     element: <StanceDetail />,
   }
-])
+],
+{
+  basename: process.env.PUBLIC_URL || '/', // 這裡設定 basename
+});
 
 root.render(
   <RouterProvider router={router} />
