@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom'; // 引入 Link 組件
 import { SideBar } from '../Components/sidebar';
 import { GlobalStyle } from "../styles/global";
 import ArticleIcon from '@mui/icons-material/Article';
+import { API_BASE_URL } from '../config';
 
 function Store() {
     const [titles, setTitles] = useState([]);
 
     useEffect(() => {
-        fetch('http://127.0.0.1:5001/get_file', {
+        fetch(`${API_BASE_URL}/get_file`, {
             method: 'POST',
             headers: {
                 'Access-Control-Allow-Origin': 'http://localhost:3000',
@@ -26,7 +27,7 @@ function Store() {
     return (
         <div className='box-title '>
             {titles.map(title => (
-                <Link to={`/analytics/${title}`} className='box'> 
+                <Link to={`/analytics/${title}`} className='box'>
                         <ArticleIcon  className='icon' fontSize='large' />
                         {title}
                 </Link>

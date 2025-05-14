@@ -27,6 +27,7 @@ import TooltipButton2 from '../Components/tooltip2';
 import Timeline from '../Components/timeline';
 import axios from 'axios';
 import { saveAs } from 'file-saver';
+import { API_BASE_URL } from '../config';
 
 
 
@@ -52,9 +53,9 @@ const options = {
         tooltip: {
             bodyFont: {
                 size: 40,
-            }, 
+            },
             titleFont: {
-                size: 40, 
+                size: 40,
             },
           },
         legend: {
@@ -67,7 +68,7 @@ const options = {
             },
         },
     },
-    
+
     scales: {
         x: {
           ticks: {
@@ -120,11 +121,11 @@ const Analytics: React.FC = () => {
     useEffect(() => {
         const formData = new FormData();
         formData.append('filename', filename);
-        fetch('http://127.0.0.1:5001/check-file', {
+        fetch(`${API_BASE_URL}/check-file`, {
             method: 'POST',
             body: formData,
             headers: {
-                'Access-Control-Allow-Origin': 'http://127.0.0.1:3000', 
+                'Access-Control-Allow-Origin': 'http://127.0.0.1:3000',
             }})
             .then(response => response.json())
             .then(data => {
@@ -134,13 +135,13 @@ const Analytics: React.FC = () => {
     }, [filename]);
 
     useEffect(() => {
-        
+
         const formData = new FormData();
-        formData.append('filename', filename); 
+        formData.append('filename', filename);
         formData.append('selectedItem', selectedItem);
         formData.append('selectedBubble', selectedBubble.toString());
-        
-        fetch('http://127.0.0.1:5001/get_cendata', {
+
+        fetch(`${API_BASE_URL}/get_cendata`, {
             method: 'POST',
             body: formData,
             headers: {
@@ -157,11 +158,11 @@ const Analytics: React.FC = () => {
                 setcenData(cenData) //中心性類型
              })
             .catch(error => {
-                console.error('Error:', error);    
+                console.error('Error:', error);
                 // console.log('selectedItem:', selectedItem);
             });
-        
-        fetch('http://127.0.0.1:5001/result1', {
+
+        fetch(`${API_BASE_URL}/result1`, {
             method: 'POST',
             body: formData,
             headers: {
@@ -176,8 +177,8 @@ const Analytics: React.FC = () => {
             .catch((error) => {
             console.log("Error",error)
             })
-        
-        fetch('http://127.0.0.1:5001/chartData', {  
+
+        fetch(`${API_BASE_URL}/chartData`, {
             method: 'POST',
             body: formData,
             headers: {
@@ -191,8 +192,8 @@ const Analytics: React.FC = () => {
             .catch((error) => {
                 console.log("Error", error)
             })
-        
-        fetch('http://127.0.0.1:5001/result2', {
+
+        fetch(`${API_BASE_URL}/result2`, {
             method: 'POST',
             body: formData,
             headers: {
@@ -212,7 +213,7 @@ const Analytics: React.FC = () => {
             .catch((error) => {
             console.log("Error",error)
             })
-        fetch('http://127.0.0.1:5001/timeline', {
+        fetch(`${API_BASE_URL}/timeline`, {
             method: 'POST',
             body: formData,
             headers: {
@@ -223,7 +224,7 @@ const Analytics: React.FC = () => {
             .then((data) => {
                 if (data !== null && data !== undefined) {
                     console.log('timeline:', data)
-                    setTimeline(data) 
+                    setTimeline(data)
 
                 } else {
                     console.log('Data is null or undefined');
@@ -232,9 +233,9 @@ const Analytics: React.FC = () => {
             .catch((error) => {
             console.log("Error",error)
             })
-            
-        
-        fetch('http://127.0.0.1:5001/btm_fig', {
+
+
+        fetch(`${API_BASE_URL}/btm_fig`, {
             method: 'POST',
             body: formData,
             headers: {
@@ -255,8 +256,8 @@ const Analytics: React.FC = () => {
             .catch((error) => {
             console.log("Error",error)
             })
-        
-        fetch('http://127.0.0.1:5001/btm_terms', {
+
+        fetch(`${API_BASE_URL}/btm_terms`, {
             method: 'POST',
             body: formData,
             headers: {
@@ -270,18 +271,18 @@ const Analytics: React.FC = () => {
                 return response.json();
             })
             .then((barData) => {
-                setBarData(barData) 
+                setBarData(barData)
                 // const initialbubble = '0';
                 // setSelectedBubble(initialbubble);
                 // console.log('test:', selectedBubble)
                 // console.log('barData:', barData['btm_terms'])
-            
+
             })
             .catch((error) => {
             console.log("Error",error)
             })
 
-        fetch('http://127.0.0.1:5001/btm_doc', {
+        fetch(`${API_BASE_URL}/btm_doc`, {
             method: 'POST',
             body: formData,
             headers: {
@@ -295,24 +296,24 @@ const Analytics: React.FC = () => {
                 return response.json();
             })
             .then((docData) => {
-                setDocData(docData) 
+                setDocData(docData)
                 // console.log('test:', selectedBubble)
                 // console.log('barData:', docData)
-            
+
             })
             .catch((error) => {
             console.log("Error",error)
             })
-        
-        
-        
+
+
+
     }, [filename,selectedItem,selectedBubble]);
 
     useEffect(() => {
         const formData = new FormData();
         formData.append('filename', filename);
 
-        fetch('http://127.0.0.1:5001/btm_fig', {
+        fetch(`${API_BASE_URL}/btm_fig`, {
             method: 'POST',
             body: formData,
             headers: {
@@ -335,13 +336,13 @@ const Analytics: React.FC = () => {
             .catch((error) => {
             console.log("Error",error)
             })
-    }, []); 
+    }, []);
 
     useEffect(() => {
         const formData = new FormData();
         formData.append('filename', filename);
 
-        fetch('http://127.0.0.1:5001/result2', {
+        fetch(`${API_BASE_URL}/result2`, {
             method: 'POST',
             body: formData,
             headers: {
@@ -362,14 +363,14 @@ const Analytics: React.FC = () => {
         .catch((error) => {
             console.log("Error", error)
         });
-    }, []); 
-    
+    }, []);
+
     useEffect(() => {
         const formData = new FormData();
-        formData.append('filename', filename); 
+        formData.append('filename', filename);
         formData.append('cen_type', cen_type);
         formData.append('selectedFile', selectedFile);
-        fetch('http://127.0.0.1:5001/network', {
+        fetch(`${API_BASE_URL}/network`, {
             method: 'POST',
             body: formData,
             headers: {
@@ -387,8 +388,8 @@ const Analytics: React.FC = () => {
                 // console.log('Network:', network); // 查看网络响应数据
                 setNetworkData(network); // 更新状态
                 // console.log('setNetworkData called'); // 确认这行代码被执行
-                
-            
+
+
             })
             .catch((error) => {
             console.log("Error",error)
@@ -397,9 +398,9 @@ const Analytics: React.FC = () => {
 
     useEffect(() => {
         const formData = new FormData();
-        formData.append('filename', filename); 
+        formData.append('filename', filename);
         formData.append('selectedFile', selectedFile);
-        fetch('http://127.0.0.1:5001/stance', {
+        fetch(`${API_BASE_URL}/stance`, {
             method: 'POST',
             body: formData,
             headers: {
@@ -424,32 +425,32 @@ const Analytics: React.FC = () => {
 
     const handleDownload = async () => {
         const formData = new FormData();
-        formData.append('filename', filename); 
-    
+        formData.append('filename', filename);
+
         try {
-          const response = await fetch('http://127.0.0.1:5001/download', { 
-            method: 'POST', 
+          const response = await fetch(`${API_BASE_URL}/download`, {
+            method: 'POST',
             body: formData ,
             headers: {
                 'Access-Control-Allow-Origin': 'http://localhost:3000',
             },
           });
-    
+
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
-    
+
           // 將回傳的資料轉換為 Blob
           const data = await response.text();
           const blob = new Blob([data], { type: 'text/csv;charset=utf-8;' });
-    
+
           // 使用 file-saver 套件來保存檔案
           saveAs(blob, 'Download.csv');
         } catch (error) {
           console.error('Download failed:', error);
         }
     };
-    
+
 
 
 
@@ -489,10 +490,10 @@ const Analytics: React.FC = () => {
                         <h1>選擇日期段</h1>
                 </div>
               <div className='timestamp2'>
-                    
+
                 {timeline && <Timeline startDate={timeline.first} endDate={timeline.last} highlightPeriods={timeline.highlightPeriods} highlightPeriods2={timeline.highlightPeriods2} setSelectedFile={setSelectedFile}/>}
               </div>
-              
+
               <div className='analytic-title'>
                     <h1>主題分類</h1>
                     <TooltipButton2/>
@@ -510,22 +511,22 @@ const Analytics: React.FC = () => {
                 </div>
                 <div className='analytic-title'>
                 <h1>用戶社群網路中心性分數</h1>
-                
+
               </div>
                 <div className='title2'>
                     <h3>點擊用戶查看變化</h3>
                 </div>
               <div className='table'>
-                    <MyDataTable2 data={result2} selectedFile={selectedFile} onItemSelected={setSelectedItem} /> 
+                    <MyDataTable2 data={result2} selectedFile={selectedFile} onItemSelected={setSelectedItem} />
                     {/* <div className='title2' >
-                        <h3>點擊用戶查看變化</h3>   
+                        <h3>點擊用戶查看變化</h3>
                     </div>   */}
-                    
+
                 </div>
                 <div className='title2'>
                         <h3>用戶：{selectedItem}</h3>
                     </div>
-              
+
               <div className='chart'>
                 {chartcenData && <Line options={options} data={chartcenData} style={{ width: "1800px", height: "800px" }} />}
               </div>
@@ -560,7 +561,7 @@ const Analytics: React.FC = () => {
                     </button>
                     <TooltipButton />
                 </div> */}
-                
+
                 {network_data ? (
                     <React.StrictMode>
                         <Network data={network_data} highlightedNode={highlightedNode} />
@@ -576,9 +577,9 @@ const Analytics: React.FC = () => {
                         </div>
                         <div className='stance-change-list'>
                             {stancechange.map((item, index) => (
-                                <Link 
-                                    to={`/analytics/${filename}/${selectedFile}/${item[0]}`} 
-                                    key={index} 
+                                <Link
+                                    to={`/analytics/${filename}/${selectedFile}/${item[0]}`}
+                                    key={index}
                                     className='stance-change-item'
                                     onMouseEnter={() => setHighlightedNode(item[0])}
                                     // onMouseLeave={() => setHighlightedNode(null)}
@@ -596,23 +597,23 @@ const Analytics: React.FC = () => {
                     </div>
                 )}
                 </div>
-                
+
             </div>
             ) : (
                 <div className='analytic-title'>
                     <h1>還在分析中</h1>
                 </div>
             )}
-      
+
           {/* 无论文件是否存在，都显示的组件 */}
           <div>
-            <GlobalStyle /> 
+            <GlobalStyle />
             <SideBar />
           </div>
         </div>
       );
-      
-    
+
+
 };
 
 
